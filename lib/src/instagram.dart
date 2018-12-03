@@ -12,6 +12,7 @@ import 'endpoints.dart';
 import 'requestor.dart';
 import 'scopes.dart';
 
+
 /// Manages authentication against the Instagram API.
 class InstagramApiAuth {
   final String clientId, clientSecret;
@@ -57,7 +58,7 @@ class InstagramApiAuth {
   static AccessTokenResponse parseAccessTokenResponse(http.Response response) {
     if (response.headers['content-type']?.contains('application/json') != true)
       throw new FormatException('The response is not formatted as JSON.');
-    var untyped = JSON.decode(response.body);
+    var untyped = jsonDecode(response.body);
 
     if (untyped is! Map)
       throw new FormatException('Expected the response to be a JSON object.');
@@ -68,7 +69,7 @@ class InstagramApiAuth {
           'Expected both an "access_token" and a "user".');
     }
 
-    return new AccessTokenResponse.fromJson(new Map.from(untyped));
+    return new AccessTokenResponse.fromJson(new Map<String, dynamic>.from(untyped));
   }
 
   /// Creates an API client from an access token.
@@ -147,7 +148,7 @@ class _SubscriptionManagerImpl implements SubscriptionManager {
           true)
         throw new FormatException(
             'The response is not formatted as JSON: "${response.body}"');
-      var untyped = JSON.decode(response.body);
+      var untyped = jsonDecode(response.body);
 
       if (untyped is! Map)
         throw new FormatException('Expected the response to be a JSON object.');
@@ -210,7 +211,7 @@ class _RequestorImpl extends Requestor {
           true)
         throw new FormatException(
             'The response is not formatted as JSON: "${response.body}"');
-      var untyped = JSON.decode(response.body);
+      var untyped = jsonDecode(response.body);
 
       if (untyped is! Map)
         throw new FormatException('Expected the response to be a JSON object.');

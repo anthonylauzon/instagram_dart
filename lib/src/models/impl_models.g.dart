@@ -47,14 +47,14 @@ abstract class InstagramResponseMapper {
   /// Converts a JSON string to an instance of InstagramResponse.
   static InstagramResponse fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of InstagramResponse to JSON string.
   static String toJson(InstagramResponse object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -88,14 +88,14 @@ abstract class InstagramExceptionMapper {
   /// Converts a JSON string to an instance of InstagramException.
   static InstagramException fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of InstagramException to JSON string.
   static String toJson(InstagramException object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -128,14 +128,14 @@ abstract class InstagramResponsePaginationMapper {
   /// Converts a JSON string to an instance of InstagramResponsePagination.
   static InstagramResponsePagination fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of InstagramResponsePagination to JSON string.
   static String toJson(InstagramResponsePagination object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -169,13 +169,13 @@ abstract class InstagramAuthExceptionMapper {
   /// Converts a JSON string to an instance of InstagramAuthException.
   static InstagramAuthException fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of InstagramAuthException to JSON string.
   static String toJson(InstagramAuthException object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }

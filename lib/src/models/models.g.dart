@@ -43,14 +43,14 @@ abstract class AccessTokenResponseMapper {
   /// Converts a JSON string to an instance of AccessTokenResponse.
   static AccessTokenResponse fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of AccessTokenResponse to JSON string.
   static String toJson(AccessTokenResponse object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -92,14 +92,14 @@ abstract class UserMapper {
   /// Converts a JSON string to an instance of User.
   static User fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of User to JSON string.
   static String toJson(User object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -133,14 +133,14 @@ abstract class UserCountsMapper {
   /// Converts a JSON string to an instance of UserCounts.
   static UserCounts fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of UserCounts to JSON string.
   static String toJson(UserCounts object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -186,7 +186,7 @@ abstract class MediaMapper {
     object.caption = MediaCaptionMapper.parse(map['caption']);
 
     // ignore: avoid_as
-    object.usersInPhoto = (map['users_in_photo'] as List<dynamic>)
+    object.usersInPhoto = (map['users_in_photo'] as List<Map<String, dynamic>>)
         ?.map(UserInPhotoMapper.parse)
         ?.toList();
 
@@ -201,7 +201,7 @@ abstract class MediaMapper {
     object.userHasLiked = map['user_has_liked'];
 
     // ignore: avoid_as
-    object.carouselMedia = (map['carousel_media'] as List<dynamic>)
+    object.carouselMedia = (map['carousel_media'] as List<Map<String, dynamic>>)
         ?.map(MediaMapper.parse)
         ?.toList();
     return object;
@@ -210,14 +210,14 @@ abstract class MediaMapper {
   /// Converts a JSON string to an instance of Media.
   static Media fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of Media to JSON string.
   static String toJson(Media object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -251,14 +251,14 @@ abstract class MediaCaptionMapper {
   /// Converts a JSON string to an instance of MediaCaption.
   static MediaCaption fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of MediaCaption to JSON string.
   static String toJson(MediaCaption object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -290,14 +290,14 @@ abstract class RelationshipMapper {
   /// Converts a JSON string to an instance of Relationship.
   static Relationship fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of Relationship to JSON string.
   static String toJson(Relationship object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -333,14 +333,14 @@ abstract class MediaImagesMapper {
   /// Converts a JSON string to an instance of MediaImages.
   static MediaImages fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of MediaImages to JSON string.
   static String toJson(MediaImages object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -374,14 +374,14 @@ abstract class MediaImageMapper {
   /// Converts a JSON string to an instance of MediaImage.
   static MediaImage fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of MediaImage to JSON string.
   static String toJson(MediaImage object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -411,14 +411,14 @@ abstract class CommentOrLikeCountMapper {
   /// Converts a JSON string to an instance of CommentOrLikeCount.
   static CommentOrLikeCount fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of CommentOrLikeCount to JSON string.
   static String toJson(CommentOrLikeCount object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -450,14 +450,14 @@ abstract class UserInPhotoMapper {
   /// Converts a JSON string to an instance of UserInPhoto.
   static UserInPhoto fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of UserInPhoto to JSON string.
   static String toJson(UserInPhoto object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -489,14 +489,14 @@ abstract class UserInPhotoPositionMapper {
   /// Converts a JSON string to an instance of UserInPhotoPosition.
   static UserInPhotoPosition fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of UserInPhotoPosition to JSON string.
   static String toJson(UserInPhotoPosition object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -530,14 +530,14 @@ abstract class CommentMapper {
   /// Converts a JSON string to an instance of Comment.
   static Comment fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of Comment to JSON string.
   static String toJson(Comment object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -569,14 +569,14 @@ abstract class TagMapper {
   /// Converts a JSON string to an instance of Tag.
   static Tag fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of Tag to JSON string.
   static String toJson(Tag object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -612,14 +612,14 @@ abstract class LocationMapper {
   /// Converts a JSON string to an instance of Location.
   static Location fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of Location to JSON string.
   static String toJson(Location object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
 
@@ -655,13 +655,13 @@ abstract class SubscriptionMapper {
   /// Converts a JSON string to an instance of Subscription.
   static Subscription fromJson(String json) {
     if (json == null || json.isEmpty) return null;
-    final Map<String, dynamic> map = JSON.decoder.convert(json);
+    final Map<String, dynamic> map = jsonDecode(json);
     return parse(map);
   }
 
   /// Converts an instance of Subscription to JSON string.
   static String toJson(Subscription object) {
     if (object == null) return null;
-    return JSON.encoder.convert(map(object));
+    return jsonEncode(map(object));
   }
 }
